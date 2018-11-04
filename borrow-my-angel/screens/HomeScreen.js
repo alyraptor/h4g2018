@@ -24,29 +24,38 @@ export default class HomeScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/bma-logo.png')
-                  : require('../assets/images/robot-prod.png')
-              }
+              source={require('../assets/images/bma-logo.png')}
               style={styles.welcomeImage}
             />
           </View>
 
           <View style={styles.getStartedContainer}>
-          <Button
-            onPress={this._handleHelpPress}
-            title="Help Your Friend"
-            color="#ff0000"
-            accessibilityLabel="Click here to talk with an Angel"
-          />
-          <Button
-            onPress={this._handleHelpPress}
-            title="Help Yourself"
-            color="#ff0000"
-            accessibilityLabel="Click here to talk with an Angel"
-          />
-
+            <View style={styles.helpButton}>
+              <Button
+                onPress={this._handleCall911}
+                title="Help Yourself"
+                accessibilityLabel="Click here to talk with an Angel"
+                color="#0aaf20"
+              />
+            </View>
+            <View style={styles.helpButton}>
+              <Button
+                onPress={this._handleCall911}
+                title="Help Your Friend"
+                style={styles.helpButton}
+                accessibilityLabel="Click here to talk with an Angel"
+                color="#0aaf20"
+              />
+            </View>
+            <View style={styles.helpButton}>
+              <Button
+                style={styles.helpButton}
+                onPress={this._handleCall911}
+                title="Call 911"
+                accessibilityLabel="Emergency Call 911"
+                color="#ff0000"
+              />
+            </View>
           </View>
         </ScrollView>
 
@@ -54,40 +63,10 @@ export default class HomeScreen extends React.Component {
     );
   }
 
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
+  _handleCall911 = () => {
+      WebBrowser.openBrowserAsync(`tel:911`);
   };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
-}
-
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -107,6 +86,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
+  },
+  helpButton: {
+    width: 300,
+    fontSize: 36,
+    lineHeight: 40
   },
   welcomeImage: {
     width: 300,
