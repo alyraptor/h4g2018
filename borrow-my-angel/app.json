@@ -1,14 +1,17 @@
 {
   "expo": {
     "name": "borrow-my-angel",
-    "description": "A very interesting project.",
+    "description": "Helping you help yourself and those you care about.",
     "slug": "borrow-my-angel",
     "privacy": "public",
     "sdkVersion": "31.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "../assets/images/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -22,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "githubUrl": "https://github.com/alyraptor/h4g2018"
   }
 }
