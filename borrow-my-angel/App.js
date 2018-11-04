@@ -1,7 +1,20 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
+import { AppLoading, Asset, Font, Icon} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import * as firebase from 'firebase';
+
+const config = {
+  apiKey: "AIzaSyANz8NASypAtpFUDJpta0n_nBoYM9xsArk",
+  authDomain: "bma-h4g2018.firebaseapp.com",
+  databaseURL: "https://bma-h4g2018.firebaseio.com",
+  projectId: "bma-h4g2018",
+  storageBucket: "bma-h4g2018.appspot.com",
+  messagingSenderId: "455552526324"
+};
+
+//const firebaseApp = firebase.initializeApp(config);
+
 
 export default class App extends React.Component {
   state = {
