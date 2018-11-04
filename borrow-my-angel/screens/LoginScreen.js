@@ -3,6 +3,7 @@ import { View, StyleSheet, Button } from 'react-native';
 
 import t from 'tcomb-form-native';
 
+
 const Form = t.form.Form;
 
 const User = t.struct({
@@ -45,11 +46,17 @@ const options = {
   stylesheet: formStyles,
 };
 
+
 export default class App extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
     console.log('value: ', value);
   }
+
+
+static navigationOptions = {
+  title: 'Login',
+};
 
   render() {
     return (

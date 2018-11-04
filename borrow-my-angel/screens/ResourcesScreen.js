@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  ScrollView, 
-  StyleSheet, 
-  ListView, 
+import {
+  ScrollView,
+  StyleSheet,
+  ListView,
   FlatList,
-  TouchableHighlight, 
-  Text, 
-  View, 
+  TouchableHighlight,
+  Text,
+  View,
   AppRegistry } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 //const firebased = require("firebase");
@@ -55,7 +55,7 @@ export default class ResourcesScreen extends React.Component {
   componentDidMount(){
     this.getResources(this.resourcesRef);
   }
-  
+
   getResources(resourcesRef){
     resourcesRef.on('value', (snap)=> {
       let resources =[];
@@ -66,7 +66,7 @@ export default class ResourcesScreen extends React.Component {
           _key: child.key
         });
       }
-      
+
       });
 
       this.setState({
@@ -86,11 +86,11 @@ export default class ResourcesScreen extends React.Component {
         this.pressRow(resource);
       }}>
 
-      
-        <Text>{resource.resource_name}</Text>
 
-  
-      
+        <Text style={styles.item}>{resource.resource_name}</Text>
+
+
+
 
       </TouchableHighlight>
     );
@@ -98,8 +98,7 @@ export default class ResourcesScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links*/}
+        <Text style={styles.header}> Self Help</Text>
         <ListView
           dataSource= {this.state.resourcesDataSource}
           renderRow={this.renderRow}
@@ -113,6 +112,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#003366',
   },
+  item: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 18
+  },
+  header: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: '600',
+    textAlign: 'center'
+  }
 });

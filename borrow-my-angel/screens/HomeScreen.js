@@ -41,17 +41,15 @@ export default class HomeScreen extends React.Component {
             <View style={styles.helpButton}>
               <Button
                 onPress={this._handleCall911}
-                title="Help Your Friend"
-                style={styles.helpButton}
+                title="Help Someone"
                 accessibilityLabel="Click here to talk with an Angel"
                 color="#0aaf20"
               />
             </View>
             <View style={styles.helpButton}>
               <Button
-                style={styles.helpButton}
                 onPress={this._handleCall911}
-                title="Call 911"
+                title="Emergency - Call 911"
                 accessibilityLabel="Emergency Call 911"
                 color="#ff0000"
               />
@@ -89,8 +87,7 @@ const styles = StyleSheet.create({
   },
   helpButton: {
     width: 300,
-    fontSize: 36,
-    lineHeight: 40
+    margin: 10
   },
   welcomeImage: {
     width: 300,
@@ -101,7 +98,6 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
   },
   homeScreenFilename: {
     marginVertical: 7,

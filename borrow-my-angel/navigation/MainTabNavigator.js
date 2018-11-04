@@ -50,21 +50,7 @@ ResourcesStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-    />
-  ),
-};
-
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-document' : 'md-document'}
     />
   ),
 };
@@ -74,7 +60,7 @@ const LoginStack = createStackNavigator({
 });
 
 LoginStack.navigationOptions = {
-  tabBarLabel: 'Login',
+  tabBarLabel: 'Account',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -87,6 +73,5 @@ export default createBottomTabNavigator({
   HomeStack,
   ResourcesStack,
   LinksStack,
-  SettingsStack,
   LoginStack,
 });
